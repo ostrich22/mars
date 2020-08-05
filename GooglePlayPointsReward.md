@@ -2,7 +2,7 @@
 * 在Google Play商店購買Google Play Points Reward需要進行讓玩  
 家認領商品的動作。  
 
-![流程圖](/mars/Image/GPPReward.png)
+![流程圖](/Image/GPPReward.png)
 
 ## 實作『傳送需認領訂單資訊』的callback
 ```java

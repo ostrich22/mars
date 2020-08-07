@@ -18,4 +18,4 @@
 新版的FB SDK改為dynamic，匯入後需多做設定。
 專案設定->General->Frameworks, Libraries, and Embedded Content
 將FBSDKCoreKit、FBSDKLoginKit與FBSDKShareKit這三個framework的Embed改為Embed&Sign
-
+![示意圖](/Image/FBSDKSetting.png)

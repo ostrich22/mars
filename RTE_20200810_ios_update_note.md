@@ -5,6 +5,7 @@
 * 移除UIWebView，改用WKWebView
 * 移除Party Track
 * 移除未使用的twitter相關資源
+* 新增Apple防刷退功能
 
 ## 更新framework
 建議將以下的framework刪除後，再將新包中的framework匯入專案。

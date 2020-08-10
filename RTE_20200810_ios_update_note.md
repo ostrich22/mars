@@ -4,6 +4,7 @@
 * FB SDK更新(舊版FB SDK有使用UIWebView)
 * 移除UIWebView，改用WKWebView
 * 移除Party Track
+* 移除未使用的twitter相關資源
 
 ## 更新framework
 建議將以下的framework刪除後，再將新包中的framework匯入專案。

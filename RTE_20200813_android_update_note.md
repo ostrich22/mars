@@ -14,7 +14,7 @@
 ## 加入aar
 將UJMobileSDK-1.0.aar放到app\libs。
 ## 加入mars settings
-將mars_settings.xml放到app\src\main\res。
+將mars_settings.xml放到app\src\main\res\values。
 ## 建立dependency
 * gradle 範例
 ```

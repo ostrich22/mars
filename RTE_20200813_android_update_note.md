@@ -3,6 +3,7 @@
 (大部分資源已包入aar內，除了mars_settings.xml)
 * 更新儲值流程。
 * 加入google防刷退流程。
+* 調整要求permission的時機。
 * 更新FB SDK至5.13。
 * 新增修改密碼功能。
 * 新增GPP獎勵認領功能。  

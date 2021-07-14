@@ -15,7 +15,7 @@
 * FB SDK 更新至8.2.0
 * 移除UIWebView
 
-## Function變更
+## 函式變更
 ### 清除登入資訊
 ```diff
 - MarsFunction.ClearInfoForLogin();
@@ -42,8 +42,56 @@
 
 * callback事件
 ```csharp
+public void SetCallbacks()
+{
+    UserjoyPlatform.doUJEventRequestGold = doUJEventRequestGold;
+}
 
-UserjoyPlatform.doUJEventRequestGold = doUJEventRequestGold;
-
-
+public static void doUJEventRequestGold()
+{
+    // 通知game server透過web api領取訂單
+}
 ```
+
+## 驗證項目
+### 登入相關
+* 新創馬上玩帳號
+* FB登入
+* Apple帳號登入
+* 帳密登入
+* 取消帳號引繼(app刪除重裝後，無法取得之前登入過的帳號)
+
+### 儲值相關
+* Google與Apple儲值
+* 遊戲內的第三方儲值
+* 官網儲值
+
+#### 建議實作
+* 進入遊戲後
+```csharp
+#if UNITY_ANDROID && !UNITY_EDITOR
+    GooglePlatform.Instance().RequestUJOrderList();
+#elif UNITY_IOS && !UNITY_EDITOR
+    IOSPlatform.Instance().RequestUJOrderList();
+#else
+    UserjoyPlatform.Instance().RequestUJOrderList("", "", "");
+#endif
+```
+
+* 在商城介面上(或其它遊戲介面上)，加入一按鈕(冷卻3分鐘)，呼叫下面的函式
+```csharp
+#if UNITY_ANDROID && !UNITY_EDITOR
+    GooglePlatform.Instance().RequestUJOrderList();
+#elif UNITY_IOS && !UNITY_EDITOR
+    IOSPlatform.Instance().RequestUJOrderList();
+#else
+    UserjoyPlatform.Instance().RequestUJOrderList("", "", "");
+#endif
+```
+
+* **注意**：在Android與iOS上，要先進行初始化才可以呼叫RequestUJOrderList。
+
+### 手機綁定相關
+* 手機綁定功能
+* 測試機不會發簡訊，驗證碼固定為331079
+* 正式機會發簡訊

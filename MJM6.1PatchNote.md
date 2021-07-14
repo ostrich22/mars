@@ -97,7 +97,3 @@ public static void doUJEventRequestGold()
 * 手機綁定功能
 * 測試機不會發簡訊，驗證碼固定為331079
 * 正式機會發簡訊
-
-## Unity 刪除檔案列表
-```
-```

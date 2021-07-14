@@ -8,12 +8,14 @@
 * 改使用Androidx Libraries
 * 使用mainTemplate.gradle管理插件
 * 移除帳號引繼功能
+* 移除Party Track
 
 ### iOS
 * 儲值流程更新至MSDK 3.5.x
 * 儲值相關接口調整
 * FB SDK 更新至8.2.0
 * 移除UIWebView
+* 移除Party Track
 
 ## 函式變更
 ### 清除登入資訊

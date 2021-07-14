@@ -14,6 +14,7 @@
 * 儲值流程更新至MSDK 3.5.x
 * 儲值相關接口調整
 * FB SDK 更新至8.2.0
+* 新增Apple帳號登入
 * 移除UIWebView
 * 移除Party Track
 

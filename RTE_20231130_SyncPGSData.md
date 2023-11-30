@@ -16,6 +16,9 @@ Google商店版app需先開啟PGS同步帳號機制，Android 電腦版才可以
 // 初始化MSDK
 _androidPlugin = new AndroidPlugin(this, "https://msdk.uj.com.tw/RTE/game/service.php");
 
+// 註冊callback
+RegisterCallbacks();
+
 // 同步PGS資料
 PlayGameServicePlatform.SyncPGSData();
 ```

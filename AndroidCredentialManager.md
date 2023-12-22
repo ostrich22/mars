@@ -11,5 +11,5 @@
 理器。
 
 ### Custom
-* Google
+* Google  
   提供使用者使用Google帳號登入，這段流程與Web版相似，完成後會拿到IdToken，需再經過驗證才可以取得Google ID。

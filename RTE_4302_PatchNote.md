@@ -64,7 +64,7 @@ public void doMsgProcessAccountHesitationDeletionPeriod(String[] args) {
 ```
 
 ### iOS
-#### Apple的上架政策App更新需符合隱私聲明規範(包含第三方SDK)
+#### Apple的上架政策：App更新需符合隱私聲明規範(包含第三方SDK)
 * [隱私清單計畫正式公告](https://developer.apple.com/news/?id=3d8a9yyh)
 * [News and Updates](https://developer.apple.com/news/upcoming-requirements/)
 * [About Privacy manifest files](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api?language=objc)

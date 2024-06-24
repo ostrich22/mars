@@ -107,7 +107,7 @@ GTMSessionFetcher.framework
 
 #### 刪除/復原帳號功能
 * 功能變更如同Android
-* 相關事件請參考Demo_iOS\Demo_iOS\MarsDemo\Scripts\AppDelegate.m 292~319
+* 相關事件請參考Demo_iOS中AppDelegate.m 292~319
 * 以下三個事件必需呼叫[[ViewMgr Instance] ShowRestoreAccountDialog]
 ```objc
 // ShowRestoreAccountDialog會提示玩家目前帳號的狀況，若帳號還在後悔期，該介面可以復原帳號

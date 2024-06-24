@@ -99,7 +99,7 @@ GTMSessionFetcher.framework
 #### AppDelegate.m
 * 新版Facebook登入
 ```diff
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+ - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
 +    return [[FBSDKApplicationDelegate sharedInstance] application:app openURL:url options:options];
 -    return [GIDSignIn.sharedInstance handleURL:url];
 }
@@ -140,6 +140,12 @@ NSString* designID = @"1";
 NSString* info = @"defined by sdk user";
 +[[StoreKitPluginBridge Instance] DoPurchase:designID extraInformation:info delay:true];
 -[[StoreKitPlugin Instance] RequestUJOrder:designID:info:true];
+```
+
+* 詢問是否有可領取的訂單
+```diff
++[[StoreKitPluginBridge Instance] RequestUJOrderList];
+-[[StoreKitPlugin Instance] RequestUJOrderList];
 ```
 
 #### Facebook登入

@@ -7,6 +7,7 @@
 
 ### Android
 * minSdk改至24
+* 使用Demo_Android\app\src\main\sharedres\values\mars_settings.xml覆蓋遊戲中的
 
 #### 調整刪除帳號規則
 * 直接刪除 -> 執行後進入三天後悔期
@@ -64,6 +65,8 @@ public void doMsgProcessAccountHesitationDeletionPeriod(String[] args) {
 ```
 
 ### iOS
+* 使用Demo_iOS\Resources\mars_settings.xml覆蓋遊戲中的
+
 #### Apple的上架政策：App更新需符合隱私聲明規範(包含第三方SDK)
 * [隱私清單計畫正式公告](https://developer.apple.com/news/?id=3d8a9yyh)
 * [News and Updates](https://developer.apple.com/news/upcoming-requirements/)

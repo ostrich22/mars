@@ -13,7 +13,7 @@
 * 後悔期期間可以復原帳號
 * 三天後，由排程執行刪除帳號動作
 * 新增刪除/復原帳號相關事件(請參考Demo_Android中MainActivity.java 767~798)
-* 以下三個事件必須呼叫BridgeController.DeleteAccountInstance().ShowRestoreAccountDialog();
+* 以下三個事件必須呼叫BridgeController.DeleteAccountInstance().ShowRestoreAccountDialog()
 ```java
 // ShowRestoreAccountDialog會提示玩家目前帳號的狀況，若帳號還在後悔期，該介面可以復原帳號
 @Override
@@ -61,4 +61,89 @@ public void doMsgProcessAccountHesitationDeletionPeriod(String[] args) {
 +<queries>
 +    <package android:name="com.facebook.katana" />
 +</queries>
+```
+
+### iOS
+#### Apple的上架政策App更新需符合隱私聲明規範(包含第三方SDK)
+* [隱私清單計畫正式公告](https://developer.apple.com/news/?id=3d8a9yyh)
+* [News and Updates](https://developer.apple.com/news/upcoming-requirements/)
+* [About Privacy manifest files](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api?language=objc)
+* [Upcoming third-party SDK requirements](https://developer.apple.com/support/third-party-SDK-requirements/)  
+APPLE列出來架上常用的SDK清單, 既然被列出清單內的SDK就必須要有隱私清單與SDK簽名
+* 遊戲內所有使用的SDK都必須符合規範
+
+#### 更換Framework&Bundle
+* 請刪除以下的檔案再倒入4.3.0.2版demo中的Framework&Bundle
+```
+UJMobileSDKResources.bundle
+AppAuth.framework
+FBAEMKit.framework
+FBSDKCoreKit.framework
+FBSDKCoreKit_Basics.framework
+FBSDKLoginKit.framework
+FBSDKShareKit.framework
+GoogleSignIn.framework
+GTMAppAuth.framework
+GTMSessionFetcher.framework
+UJMobileSDK.framework
+```
+* 以下Framework加入專案後需改為Embed & Sign
+```
+AppAuth.framework
+FBLPromises.framework
+GoogleSignIn.framework
+GoogleUtilities.framework
+GTMAppAuth.framework
+GTMSessionFetcher.framework
+```
+#### AppDelegate.m
+* 新版Facebook登入
+```diff
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
++    return [[FBSDKApplicationDelegate sharedInstance] application:app openURL:url options:options];
+-    return [GIDSignIn.sharedInstance handleURL:url];
+}
+```
+
+#### 刪除/復原帳號功能
+* 相關事件請參考Demo_iOS\Demo_iOS\MarsDemo\Scripts\AppDelegate.m 292~319
+* 以下三個事件必需呼叫[[ViewMgr Instance] ShowRestoreAccountDialog]
+```objc
+// ShowRestoreAccountDialog會提示玩家目前帳號的狀況，若帳號還在後悔期，該介面可以復原帳號
+- (void)doMsgProcessAccountDeleted:(NSArray*) args {
+    [[ViewMgr Instance] ShowRestoreAccountDialog];
+}
+- (void)doMsgProcessRequestDeleteAccountSuccess:(NSArray *)args {
+    [[ViewMgr Instance] ShowRestoreAccountDialog];
+}
+- (void)doMsgProcessAccountHesitationDeletionPeriod:(NSArray *)args {
+    [[ViewMgr Instance] ShowRestoreAccountDialog];
+}
+```
+
+#### 儲值功能API變更
+* 初始化
+```diff
+NSString* serverID = self.Field_serverID.text;       // 伺服器編號
+NSString* characterID = self.Field_characterID.text;    // 角色編號
+NSString* characterName = self.Field_characterName.text;  // 角色名稱
++[[StoreKitPluginBridge Instance] InitBilling:0      // 國家代碼:0(全開放)
++                                    serverId:serverID
++                                 characterId:characterID
++                               characterName:characterName ];
+-[[StoreKitPlugin Instance] Init:serverID :characterID :characterName ];
+```
+* 購買商品
+```diff
+NSString* designID = @"1";
+NSString* info = @"defined by sdk user";
++[[StoreKitPluginBridge Instance] DoPurchase:designID extraInformation:info delay:true];
+-[[StoreKitPlugin Instance] RequestUJOrder:designID:info:true];
+```
+
+#### Facebook登入
+* Info.plist
+```diff
++	<key>FacebookClientToken</key>
++	<string>0699a7447367e0b2ec986cdf73d08e96</string>
 ```

@@ -65,7 +65,7 @@ public void doMsgProcessAccountHesitationDeletionPeriod(String[] args) {
 ```
 
 ### iOS
-* 將Demo_iOS\Resources\底下的所有xml覆蓋掉遊戲中的
+* 將Demo_iOS\Resources\mars_settings.xml覆蓋遊戲中的
 
 #### Apple的上架政策：App更新需符合隱私聲明規範(包含第三方SDK)
 * [隱私清單計畫正式公告](https://developer.apple.com/news/?id=3d8a9yyh)

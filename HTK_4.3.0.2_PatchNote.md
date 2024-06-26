@@ -97,3 +97,23 @@ GTMSessionFetcher.framework
     [[ViewMgr Instance] ShowRestoreAccountDialog];
 }
 ```
+
+#### Google登入
+* Info.plist需加入以下設定
+```
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.94565543865-vugljcl59a42sjt3k7p8cale8lsvbut7</string>
+			</array>
+		</dict>
+	</array>
+	<key>GIDClientID</key>
+	<string>94565543865-vugljcl59a42sjt3k7p8cale8lsvbut7.apps.googleusercontent.com</string>
+	<key>GIDServerClientID</key>
+	<string>94565543865-ihfdkc27rssu3s4aonb9127hiu2qe2nt.apps.googleusercontent.com</string>
+```

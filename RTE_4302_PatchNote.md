@@ -36,6 +36,7 @@ public void doMsgProcessAccountHesitationDeletionPeriod(String[] args) {
 +implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 -implementation 'androidx.constraintlayout:constraintlayout:2.0.0'
 
++def lifeCycleVersion = "2.3.1"
 +implementation "androidx.lifecycle:lifecycle-common:$lifeCycleVersion"
 +implementation "androidx.lifecycle:lifecycle-livedata:$lifeCycleVersion"
 +implementation "androidx.lifecycle:lifecycle-viewmodel:$lifeCycleVersion"

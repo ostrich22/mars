@@ -6,6 +6,7 @@
 ## 重點注意事項
 
 ### Android
+* target api需設為34
 * minSdk改至24
 * 使用Demo_Android\app\src\main\sharedres\values\mars_settings.xml覆蓋遊戲中的
 

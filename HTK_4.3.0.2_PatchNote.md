@@ -9,6 +9,10 @@
 * target api需設為34
 * minSdk改至24
 * 使用Demo_Android\app\src\main\sharedres\values\mars_settings.xml覆蓋遊戲中的
+* 刪除舊版AAR
+  * UJMobileSDK-162.4.2.0.13.aar 與PGS\UJMobileSDK-PGS-162.4.2.0.13.aar
+* 放入新版AAR
+  * Demo_Android\app\libs中的UJMobileSDK-162.4.3.0.2.aar 與PGS\UJMobileSDK-PGS-162.4.3.0.2.aar
 
 #### 新增doMsgProcessAccountHesitationDeletionPeriod事件
 ```java

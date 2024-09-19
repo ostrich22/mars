@@ -35,8 +35,7 @@ $apiData = array(
 
 ## Step 2. 進行請求資料處理與溝通
 
-將組成的資料帶入與MSDK伺服器溝通的專用管道makeSignedRequest($apiData)，進行API資料加密處理並透過curlPost發送API請求。\
-(makeSignedRequest實作與curlPost的範例請參閱文件 [0_Prepare For WebAPI](doc-msdk/Server/webapi/0_Prepare_For_WebAPI) )
+將組成的資料帶入與MSDK伺服器溝通的專用管道makeSignedRequest($apiData)，進行API資料加密處理並透過curlPost發送API請求。
 
 ## Step 3. 處理回傳資料
 

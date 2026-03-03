@@ -99,3 +99,44 @@ UserjoyPlatform.Callback = new UserjoyPlatform.MessageProcess() {
     public void doEventRequestPassFailed(int status) {
     }
 ```
+
+## iOS
+
+### 刪除/復原帳號功能
+* 流程中的提示對話窗改為自動彈出
+* 調用`[[ViewMgr Instance] ShowRestoreAccountDialog];`的地方必須刪除
+
+### GameCenter功能改版重構
+新增`GameCenterPlatform`, 將IOSPlatform內有關Gamecenter內容獨立出來
+
+* 新增流程(必串)
+```objc
+// AppDelegate.m
+-(void) doMsgProcessInitMSDKCompleted: (NSArray*) args {
+    // 連線Game Center
+    [[GameCenterPlatformBridge Instance] InitGameCenter];
+}
+```
+
+* 是否綁訂GameCenter
+```diff
+- [IOSPlatform IsBindGameCenter];
++ [GameCenterPlatform IsBindGameCenter];
+```
+
+* 取得GameCenter UID
+```diff
+- [[IOSPlatform Instance] GetBindGameCenterUID];
++ [[GameCenterPlatform Instance] GetBindGameCenterUID];
+```
+
+* GameCenter成就列表
+```diff
+- NSMutableDictionary* list = [[IOSPlatform Instance] GetAchievementDataList];
++ NSMutableDictionary* list = [[GameCenterPlatform Instance] GetAchievementDataList];
+```
+
+#### Callback
+* 驗證成功事件
+* 驗證失敗事件
+* 完整成就列表更新事件

@@ -137,6 +137,43 @@ UserjoyPlatform.Callback = new UserjoyPlatform.MessageProcess() {
 ```
 
 #### Callback
+protocol `IOSPlatformDelegate`改至`IMarsGameCenterCallback`
+
 * 驗證成功事件
+```objc
+-(void) doEventGameCenterAuthenticateSucceeded:(NSArray*) args{
+}
+```
+
 * 驗證失敗事件
+```objc
+-(void) doEventGameCenterAuthenticateFailed:(NSArray*) args{
+    [[UjLog Instance] LogInfo:@"[GameCenter] CB GameCenter Authenticate Failed:%@,
+        message:%@", args[0], args[1]];
+}
+```
+
 * 完整成就列表更新事件
+```objc
+-(void) doEventGameCenterAchievementsLoaded:(NSArray*) args{
+    [[UjLog Instance] LogInfo:@"[GameCenter] CB GameCenter Achievements Load:%@, args[0]];
+}
+```
+
+### 本地推播功能
+新增以notify id操作的function
+
+* 發送本地推播
+```objc
+[[NofificationBridge Instance] notifyExtended:title message:msg time:time notifyID:notifyID groupID:groupID];
+```
+
+* 發送附帶圖片的本地推播
+```objc
+[[NofificationBridge Instance] notifyWithImageExtended:imageData title:title message:msg time:time notifyID:notifyID groupID:groupID];
+```
+
+* 取消本地推播
+```objc
+[[NofificationBridge Instance] cancelNotifyByIdentifier:notifyID];
+```
